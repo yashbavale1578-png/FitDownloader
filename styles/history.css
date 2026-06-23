@@ -1,0 +1,110 @@
+/* ============================================
+   History Styles
+   ============================================ */
+
+.history-wrapper {
+  padding: var(--space-xl);
+  overflow-y: auto;
+  height: 100%;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-xl);
+}
+
+.history-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.history-list {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Table */
+.history-table {
+  width: 100%;
+}
+
+.history-table-header {
+  display: grid;
+  grid-template-columns: 60px 1fr 100px 160px;
+  padding: 10px var(--space-md);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(0, 240, 255, 0.03);
+}
+
+.history-table-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 100px 160px;
+  padding: 12px var(--space-md);
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  transition: var(--transition-fast);
+  font-size: 13px;
+}
+.history-table-row:last-child { border-bottom: none; }
+.history-table-row:hover {
+  background: rgba(0, 240, 255, 0.03);
+}
+
+.hist-col-status {
+  text-align: center;
+}
+
+.hist-status-badge {
+  font-size: 16px;
+}
+
+.hist-col-name {
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hist-col-size {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-dim);
+}
+
+.hist-col-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* Pagination */
+.history-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.page-info {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-dim);
+}
+
+.history-login-prompt {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--color-text-dim);
+  font-size: 14px;
+}

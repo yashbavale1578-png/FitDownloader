@@ -1,0 +1,219 @@
+/* ============================================
+   Download Panel Styles
+   ============================================ */
+
+.download-wrapper {
+  padding: var(--space-xl);
+  overflow-y: auto;
+  height: 100%;
+}
+
+.download-header {
+  margin-bottom: var(--space-xl);
+}
+
+/* URL Input Section */
+.url-input-section {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  animation: fadeInUp 0.4s ease;
+}
+
+.url-input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.url-count {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-dim);
+  transition: var(--transition-normal);
+}
+
+.url-textarea {
+  width: 100%;
+  min-height: 200px;
+  max-height: 400px;
+  resize: vertical;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  color: var(--color-text);
+  transition: var(--transition-normal);
+}
+.url-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.1);
+}
+.url-textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.url-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+/* Progress Section */
+.progress-section {
+  animation: fadeInUp 0.4s ease;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.progress-overview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.progress-stats {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--font-heading);
+}
+
+.progress-stat {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.progress-stat-sep {
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.progress-stat-label {
+  font-size: 12px;
+  color: var(--color-text-dim);
+  letter-spacing: 1px;
+  margin-left: var(--space-xs);
+}
+
+.progress-controls {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* Overall Progress Bar */
+.overall-progress {
+  margin-bottom: var(--space-xl);
+}
+
+.overall-progress-bar-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.overall-progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-bar);
+  background-size: 200% 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+  animation: shimmer 2s linear infinite;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.overall-progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-dim);
+}
+
+#overall-percent {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Download List */
+.download-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: var(--space-xs);
+}
+
+/* Complete Section */
+.complete-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  animation: fadeInUp 0.5s ease;
+}
+
+.complete-card {
+  text-align: center;
+  background: var(--color-bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl) var(--space-2xl);
+  box-shadow: var(--glow-success);
+}
+
+.complete-icon {
+  font-size: 64px;
+  margin-bottom: var(--space-md);
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.complete-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-success);
+  text-shadow: var(--glow-success);
+  margin-bottom: var(--space-sm);
+}
+
+.complete-stats {
+  color: var(--color-text-dim);
+  font-size: 14px;
+  margin-bottom: var(--space-xl);
+}
+
+.complete-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+}

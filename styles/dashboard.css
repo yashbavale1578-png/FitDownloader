@@ -1,0 +1,196 @@
+/* ============================================
+   Dashboard Styles
+   ============================================ */
+
+.dashboard-wrapper {
+  padding: var(--space-xl);
+  overflow-y: auto;
+  height: 100%;
+}
+
+.dashboard-header {
+  margin-bottom: var(--space-xl);
+}
+
+.dashboard-greeting {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInDown 0.5s ease;
+}
+
+.dashboard-subtitle {
+  color: var(--color-text-dim);
+  font-size: 15px;
+  margin-top: var(--space-xs);
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.stat-card {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  transition: var(--transition-normal);
+  animation: fadeInUp 0.5s ease both;
+}
+.stat-card:nth-child(1) { animation-delay: 0.05s; }
+.stat-card:nth-child(2) { animation-delay: 0.1s; }
+.stat-card:nth-child(3) { animation-delay: 0.15s; }
+.stat-card:nth-child(4) { animation-delay: 0.2s; }
+
+.stat-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-primary);
+}
+
+.stat-icon {
+  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 240, 255, 0.08);
+  border-radius: var(--radius-md);
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--color-text-dim);
+  letter-spacing: 0.5px;
+}
+
+/* Quick Actions */
+.quick-actions {
+  margin-bottom: var(--space-xl);
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.action-card {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  text-align: center;
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+.action-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-primary);
+  background: var(--color-bg-card-hover);
+}
+
+.action-icon {
+  font-size: 32px;
+  margin-bottom: var(--space-xs);
+}
+
+.action-label {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+}
+
+.action-desc {
+  font-size: 12px;
+  color: var(--color-text-dim);
+}
+
+/* Recent Downloads */
+.recent-section {
+  margin-bottom: var(--space-xl);
+}
+
+.recent-list {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 12px var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: var(--transition-fast);
+}
+.recent-item:last-child { border-bottom: none; }
+.recent-item:hover {
+  background: rgba(0, 240, 255, 0.03);
+}
+
+.recent-icon { font-size: 16px; }
+.recent-name { flex: 1; font-size: 13px; color: var(--color-text); }
+.recent-size { font-family: var(--font-mono); font-size: 12px; color: var(--color-text-dim); }
+.recent-date { font-family: var(--font-mono); font-size: 11px; color: var(--color-text-muted); }
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
