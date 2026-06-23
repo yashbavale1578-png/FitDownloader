@@ -118,6 +118,8 @@ class DownloadManager extends EventEmitter {
         });
 
         if (response.statusCode < 200 || response.statusCode >= 400) {
+          // Consume body to prevent undici connection pool leaks
+          await response.body.dump();
           throw new Error(`HTTP ${response.statusCode}`);
         }
 
@@ -186,8 +188,15 @@ class DownloadManager extends EventEmitter {
               return;
             }
 
-            writeStream.write(chunk);
+            const canContinue = writeStream.write(chunk);
             downloadedSize += chunk.length;
+
+            if (!canContinue) {
+              response.body.pause();
+              writeStream.once('drain', () => {
+                response.body.resume();
+              });
+            }
 
             // Throttle progress updates to every 100ms
             const now = Date.now();
@@ -246,6 +255,15 @@ class DownloadManager extends EventEmitter {
       } catch (error) {
         lastError = error;
         retries--;
+
+        if (this.activeResponseBody) {
+          try { this.activeResponseBody.destroy(); } catch (e) {}
+          this.activeResponseBody = null;
+        }
+        if (this.activeWriteStream) {
+          try { this.activeWriteStream.destroy(); } catch (e) {}
+          this.activeWriteStream = null;
+        }
 
         if (this.isCancelled) {
           throw new Error('Download cancelled');

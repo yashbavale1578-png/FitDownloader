@@ -269,6 +269,9 @@ class LinkExtractor {
       });
 
       const contentType = (headResponse.headers['content-type'] || '').toLowerCase();
+      
+      // Consume body to prevent undici connection pool leaks
+      await headResponse.body.dump();
 
       // If NOT HTML, it's a direct download
       if (!contentType.includes('text/html') && !contentType.includes('text/plain')) {
@@ -397,6 +400,10 @@ class LinkExtractor {
         }
       });
       const contentType = (response.headers['content-type'] || '').toLowerCase();
+      
+      // Consume body to prevent undici connection pool leaks
+      await response.body.dump();
+      
       return !contentType.includes('text/html');
     } catch {
       return true; // If HEAD fails, still try downloading
@@ -453,6 +460,9 @@ class LinkExtractor {
         const url = json.url || json.download_url || json.downloadUrl || json.link ||
                     json.file_url || json.fileUrl || json.data?.url || json.data?.download_url;
         if (url && url.startsWith('http')) return url;
+      } else {
+        // Consume body to prevent undici connection pool leaks
+        await response.body.dump();
       }
     } catch { /* ignore */ }
     return null;
